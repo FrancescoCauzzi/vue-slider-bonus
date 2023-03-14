@@ -34,29 +34,26 @@ createApp({
         },
       ],
       activeImageIndex: 0,
+      intervalId: null,
     };
   },
 
   created() {
     this.message = "Hello, Slider, here we come!";
-    setInterval(() => {
-      this.message =
-        "The current time is " +
-        new Date().toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-        });
-      if (this.activeImageIndex < this.slides.length - 1) {
-        this.activeImageIndex++;
-      } else {
-        this.activeImageIndex = 0;
-      }
-    }, 3000);
-
-    console.log("Component created");
+    this.startInterval();
   },
 
   methods: {
+    startInterval() {
+      this.intervalId = setInterval(() => {
+        if (this.activeImageIndex < this.slides.length - 1) {
+          this.activeImageIndex++;
+        } else {
+          this.activeImageIndex = 0;
+        }
+      }, 3000);
+    },
+
     handleBtnUp() {
       console.log("clickeed btn up");
       if (this.activeImageIndex == 0) {
@@ -79,6 +76,14 @@ createApp({
       let value = Number(event.target.getAttribute("value"));
       this.activeImageIndex = value;
       // console.log(this.activeImageIndex);
+    },
+    handleHoverOnThumb(event) {
+      clearInterval(this.intervalId);
+      let value = Number(event.target.getAttribute("value"));
+      this.activeImageIndex = value;
+    },
+    handleMouseOutOnThumb() {
+      this.startInterval();
     },
   },
 }).mount("#app");
