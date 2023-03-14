@@ -37,6 +37,25 @@ createApp({
     };
   },
 
+  created() {
+    this.message = "Hello, Slider, here we come!";
+    setInterval(() => {
+      this.message =
+        "The current time is " +
+        new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+      if (this.activeImageIndex < this.slides.length - 1) {
+        this.activeImageIndex++;
+      } else {
+        this.activeImageIndex = 0;
+      }
+    }, 3000);
+
+    console.log("Component created");
+  },
+
   methods: {
     handleBtnUp() {
       console.log("clickeed btn up");
@@ -55,11 +74,11 @@ createApp({
       }
     },
     handleClickOnThumb(event) {
-      console.log("clicked on thumb");
-      console.log(event.target);
-      const value = Number(event.target.getAttribute("value"));
+      //console.log("clicked on thumb");
+      //console.log(event.target);
+      let value = Number(event.target.getAttribute("value"));
       this.activeImageIndex = value;
-      console.log(activeImageIndex);
+      // console.log(this.activeImageIndex);
     },
   },
 }).mount("#app");
