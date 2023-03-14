@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.__my-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.__slider-wrapper {
+  height: 80%;
+  width: 100%;
+}
+
+.__item {
+  float: left;
+  width: 80%;
+  height: 100%;
+  position: relative;
+}
+
+.__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.__item .__text {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  text-align: right;
+  color: white;
+}
+
+.__thumbs {
+  /* float: left;
+  height: 300px; */
+  background: #000;
+  position: relative;
+  width: 20%;
+  height: 100%;
+}
+
+.__thumb {
+  height: calc((100%) / 5);
+  width: 100%;
+  opacity: 0.5;
+}
+
+.__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.__thumb.__active {
+  border: 2px solid #ccc;
+  opacity: 1;
+}
+
+.__prev,
+.__next {
+  width: 20px;
+  height: 20px;
+  margin: 10px 0;
+  border-radius: 50%;
+  background: #ccc;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  cursor: pointer;
+  z-index: 999;
+}
+
+.__next {
+  bottom: 0;
+}
+
+/*
+EXTRA: in questo esempio gli accordion vengono creati
+usando 2 bordi di un quadratino ruotato di 45 gradi
+In una versione base si possono usare delle icone
+oppure i caratteri ∧ (&and;) e ∨ (&or;)
+*/
+.__prev::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  display: block;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%) rotate(-45deg);
+}
+
+.__next::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  display: block;
+  position: absolute;
+  bottom: 35%;
+  left: 50%;
+  transform: translate(-50%) rotate(135deg);
+}
