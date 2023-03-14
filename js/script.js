@@ -54,5 +54,12 @@ createApp({
         this.activeImageIndex = 0;
       }
     },
+    handleClickOnThumb(event) {
+      console.log("clicked on thumb");
+      console.log(event.target);
+      const value = Number(event.target.getAttribute("value"));
+      this.activeImageIndex = value;
+      console.log(activeImageIndex);
+    },
   },
 }).mount("#app");
