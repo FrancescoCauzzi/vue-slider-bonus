@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+.__container-outer {
+  background-image: url(../img/peakpx.jpg);
+}
+
 .__my-container {
   height: 100vh;
   display: flex;
@@ -14,6 +18,7 @@
 .__slider-wrapper {
   height: 80%;
   width: 100%;
+  border: 2px solid white;
 }
 
 .__item {
