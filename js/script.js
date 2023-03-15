@@ -59,7 +59,7 @@ createApp({
       }
     },
     handleBtnDown() {
-      console.log("clickeed btn down");
+      //console.log("clickeed btn down");
       if (this.activeImageIndex < this.slides.length - 1) {
         this.activeImageIndex++;
       } else {
