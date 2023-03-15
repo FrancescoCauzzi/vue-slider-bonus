@@ -39,24 +39,20 @@ createApp({
   },
 
   created() {
-    this.message = "Hello, Slider, here we come!";
+    this.message = "Hello, Slider, here we come with VueJS!";
     this.startInterval();
   },
 
   methods: {
     startInterval() {
       this.intervalId = setInterval(() => {
-        if (this.activeImageIndex < this.slides.length - 1) {
-          this.activeImageIndex++;
-        } else {
-          this.activeImageIndex = 0;
-        }
+        this.handleBtnDown();
       }, 3000);
     },
 
     handleBtnUp() {
       console.log("clickeed btn up");
-      if (this.activeImageIndex == 0) {
+      if (this.activeImageIndex <= 0) {
         this.activeImageIndex = this.slides.length - 1;
       } else {
         this.activeImageIndex--;

@@ -46,10 +46,11 @@
             <div class="__thumbs d-flex flex-column">
               <div class="__prev" @click="handleBtnUp()"></div>
               <div class="__next" @click="handleBtnDown()"></div>
-              <img v-for="(thumbnail, index) in slides" :value="index" :src="slides[index].image"
-                :class=" index == activeImageIndex ? '__active' : '' " class="__thumb" alt="poster"
-                @click="handleClickOnThumb($event)" @mouseover="handleHoverOnThumb($event)"
-                @mouseout="handleMouseOutOnThumb()">
+              <div v-for="(slide, index) in slides" class="__thumb"
+                :class=" index == activeImageIndex ? '__active' : '' ">
+                <img :value="index" :src="slide.image" alt="poster" @click="handleClickOnThumb($event)"
+                  @mouseover="handleHoverOnThumb($event)" @mouseout="handleMouseOutOnThumb()">
+              </div>
 
             </div>
 
